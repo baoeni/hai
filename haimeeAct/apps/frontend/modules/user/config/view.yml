@@ -1,0 +1,17 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+profileEditSuccess:
+
+  stylesheets:    [jquery-ui-1.8.18.custom.css]
+
+  javascripts:    [jquery-1.7.min.js, jquery-ui-1.8.18.custom.min.js]
+
+profileShowSuccess:
+
+  stylesheets:    []
+
+  javascripts:    []
+  
+sendUserSummaryTestSuccess:
+    has_layout: false  

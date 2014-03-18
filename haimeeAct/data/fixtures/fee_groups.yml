@@ -1,0 +1,5 @@
+FeeGroup:
+  ski_ticket:
+    activity_id: 1
+    name: Ski Ticket
+    explanation: Ski Ticket Group Items

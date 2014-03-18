@@ -1,0 +1,23 @@
+.fee-edit .button-area,
+.fee-new .button-area{
+	display:none;
+}
+
+/* wrapper*/
+.fee_wrapper,
+.fee_group_wrapper{
+  margin: 10px 0;
+}
+
+.fee_wrapper fieldset,
+.fee_group_wrapper fieldset{
+	border: 1px solid #CCCCCC;
+    margin: 10px;
+    padding: 10px;	
+}
+.fee_wrapper legend,
+.fee_group_wrapper legend{
+	padding: 0 10px;
+	font-size:130%;
+}
+

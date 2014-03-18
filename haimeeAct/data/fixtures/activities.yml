@@ -1,0 +1,27 @@
+Activity:
+  ski:
+    name: Ski Trip in France
+    subject_id: 5
+    description: |
+            Ski in February lourenLorem ipsum dolor sit amet,
+            consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+            Ulit anim id est laborum.
+    time_from:  '2012-03-01'
+    time_till:  '2012-03-03'
+    location:   France - van thoran
+    poster: ski1.jpg
+
+  concert:
+    name: Jason Mraz Tour in Amsterdam
+    subject_id: 1
+    description: |
+            See Joss Stone & Jason Mraz live in Amsterdam. We supply 
+            the highest quality concert tickets at one of the best 
+            prices on the Web. From floor seats or lawn seats to 
+            center stage or general admission tickets, 
+            we have all the Joss Stone & Jason Mraz tickets.
+    time_from:  '2012-03-21'
+    time_till:  '2012-03-23'
+    location:   Heineken Music Hall, Amsterdam
+    poster: jasmrz.jpg

@@ -1,0 +1,347 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+activity:
+  class:    sfDoctrineRouteCollection
+  options:
+    model:  Activity
+
+older_activity:
+  url: /olderActivity
+  param:   { module: activity, action: olderAct }
+
+activity_attenders:
+  url: /activity/:id/attenders
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: attenders }
+  requirements:
+    id: \d+
+#
+add_mandatory_fee_form:
+  url:   /activity/addMandatoryFeeForm
+  param:   { module: activity, action: addMandatoryFeeForm }
+  requirements:
+    sf_method: get
+
+delete_mandatory_fee_form:
+  url:   /activity/deleteMandatoryFeeForm
+  param:   { module: activity, action: deleteMandatoryFeeForm }
+  requirements:
+    sf_method: get
+
+add_optional_fee_form:
+  url:   /activity/addOptionalFeeForm
+  param:   { module: activity, action: addOptionalFeeForm }
+  requirements:
+    sf_method: get
+
+delete_optional_fee_form:
+  url:   /activity/deleteOptionalFeeForm
+  param:   { module: activity, action: deleteOptionalFeeForm }
+  requirements:
+    sf_method: get
+
+add_group_fee_form:
+  url:   /activity/addGroupFeeForm
+  param:   { module: activity, action: addGroupFeeForm }
+  requirements:
+    sf_method: get
+
+delete_group_fee_form:
+  url:   /activity/deleteGroupFeeForm
+  param:   { module: activity, action: deleteGroupFeeForm }
+  requirements:
+    sf_method: get
+
+add_group_fee_item_form:
+  url:   /activity/addGroupFeeItemForm
+  param:   { module: activity, action: addGroupFeeItemForm }
+  requirements:
+    sf_method: get
+
+delete_group_fee_item_form:
+  url:   /activity/deleteGroupFeeItemForm
+  param:   { module: activity, action: deleteGroupFeeItemForm }
+  requirements:
+    sf_method: get
+
+#  
+activity_fee_show:
+  url: /activity/:id/fee
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: feeShow }
+  requirements:
+    id: \d+
+
+activity_fee_new:
+  url: /activity/:id/fee/new
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: feeNew }
+  requirements:
+    id: \d+
+
+activity_fee_create:
+  url:   /activity/:id/fee/create
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: feeCreate }
+  requirements:
+    sf_method: post
+    id: \d+
+
+activity_fee_edit:
+  url: /activity/:id/fee/edit
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: feeEdit }
+  requirements:
+    id: \d+
+
+activity_fee_update:
+  url: /activity/:id/fee/update
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: feeUpdate }
+  requirements:
+    sf_method: put
+    id: \d+
+#
+activity_attend:
+  url: /activity/:id/attend
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: attend }
+  requirements:
+    id: \d+
+
+activity_join:
+  url: /activity/:id/join
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: join }
+  requirements:
+    sf_method: post
+    id: \d+
+
+activity_quit:
+  url: /activity/:id/quit
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: quit }
+  requirements:
+    id: \d+
+
+activity_admin:
+  url: /activity/:id/admin
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: admin }
+  requirements:
+    id: \d+
+
+activity_show_bank_account:
+  url: /activity/:id/show_bank_account
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: showBankAccount }
+  requirements:
+    id: \d+
+
+
+activity_order_show:
+  url: /activity/:id/order
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: orderShow }
+  requirements:
+    id: \d+
+
+activity_order_edit:
+  url: /activity/:id/order/edit
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: orderEdit }
+  requirements:
+    id: \d+
+
+activity_order_update:
+  url: /activity/:id/order/update
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: orderUpdate }
+  requirements:
+    sf_method: put
+    id: \d+
+
+#
+user_profile_show:
+  url: /user/:id
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: user, action: profileShow }
+  requirements:
+    id: \d+
+
+user_profile_edit:
+  url: /profile/edit
+  param:   { module: user, action: profileEdit }
+
+user_profile_update:
+  url: /profile/update
+  param:   { module: user, action: profileUpdate }
+  requirements:
+    sf_method: put
+
+send_user_summary_test:
+  url: /user/:id/send_user_summary_test
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: user, action: sendUserSummaryTest }
+  requirements:
+    id: \d+
+
+user_activity_attended:
+  url: /attended
+  param:   { module: user, action: activityAttended }
+
+user_activity_organized:
+  url: /organized
+  param:   { module: user, action: activityOrganized }
+
+#
+add_comment:
+  url:   /activity/addComment
+  param:   { module: activity, action: addComment }
+
+
+remove_comment:
+  url:   /activity/removeComment
+  param:   { module: activity, action: removeComment }
+  requirements:
+    sf_method: get
+
+facebook_connect:
+  url: /facebook-connect
+  param: { module: sfGuardAuth, action: connectFacebook }
+
+facebook_getme:
+  url: /facebook-getme
+  param: { module: sfGuardAuth, action: facebook }
+
+linkedin_connect:
+  url: /linkedin-connect
+  param: { module: sfGuardAuth, action: connectLinkedin }
+
+weibo_connect:
+  url: /weibo-connect
+  param: { module: sfGuardAuth, action: connectWeibo }
+
+aboutus:
+  url: /aboutus
+  param: { module: others, action: aboutus }
+  
+contactus:
+  url: /contactus
+  param: { module: others, action: contactus }
+      
+term:
+    url: /term
+    param: { module: others, action: term }      
+    
+send_comment_email:    
+  url: /activity/:id/send_comment_email
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: sendCommentEmailTest }
+  requirements:
+    id: \d+
+
+send_join_email:
+  url: /activity/:id/send_join_email
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: sendJoinEmailTest }
+  requirements:
+    id: \d+
+
+send_rating:
+  url: /activity/:id/send_rating
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: sendRating }
+  requirements:
+    id: \d+
+
+send_rating_email:    
+  url: /activity/:id/send_rating_email
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: sendRatingEmailTest }
+  requirements:
+    id: \d+
+    
+send_activity_summary:
+  url: /activity/:id/send_activity_summary
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: sendActivitySummary }
+  requirements:
+    id: \d+    
+
+send_activity_summary_do_send:
+  url: /activity/:id/send_activity_summary_do_send
+  class:   sfDoctrineRoute
+  options: { model: Activity, type: object }
+  param:   { module: activity, action: sendActivitySummaryDoSend }
+  requirements:
+    sf_method: post
+    id: \d+ 
+    
+quit_attender:
+  url:   /activity/:id/quiteAttender
+  class:   sfDoctrineRoute
+  param:   { module: activity, action: quitAttender }
+  options: { model: Activity, type: object }
+  requirements:
+    id: \d+
+
+update_note:
+  url:   /activity/:id/updateNote
+  class:   sfDoctrineRoute
+  param:   { module: activity, action: updateNote }
+  options: { model: Activity, type: object }
+  requirements:
+    id: \d+
+
+update_paid:
+  url:   /activity/:id/updatePaid
+  class:   sfDoctrineRoute
+  param:   { module: activity, action: updatePaid }
+  options: { model: Activity, type: object }
+  requirements:
+    id: \d+    
+#fee:
+#  class:    sfDoctrineRouteCollection
+#  options:
+#    model:  Fee
+
+# default rules
+homepage:
+  url:   /
+  param: { module: activity, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+ 
+default_index_:
+  url:   /:module/
+  param: { action: index }
+
+#default:
+#  url:   /:module/:action/*

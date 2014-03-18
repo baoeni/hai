@@ -1,0 +1,47 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/08-Security
+
+index:
+  is_secure: false
+show:
+  is_secure: false
+feeShow:
+  is_secure: false
+attenders:  
+  is_secure: false
+olderAct:
+  is_secure: false    
+  
+attend:
+  is_secure: true
+  credentials: [ ]
+join:
+  is_secure: true
+  credentials: [ ] 
+quit:         
+  is_secure: true
+  credentials: [ ]
+orderShow:
+  is_secure: true
+  credentials: [ ]
+orderEdit:
+  is_secure: true
+  credentials: [ ]
+orderUpdate:
+  is_secure: true
+  credentials: [ ]
+addComment:
+  is_secure: true
+  credentials: [ ]
+showBankAccount:
+  is_secure: true
+  credentials: [ ]
+sendRating:
+  is_secure: true
+  credentials: [ ]
+
+    
+
+all:
+  is_secure: true
+  credentials: [ activity_admin]

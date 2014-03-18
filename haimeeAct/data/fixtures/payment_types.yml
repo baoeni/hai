@@ -1,0 +1,7 @@
+PaymentType:
+  payment_type_1:
+    id: 1
+    name: Payment Type 1
+  payment_type_2:
+    id: 2
+    name: Payment Type 2

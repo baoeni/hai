@@ -1,0 +1,21 @@
+secure:
+  is_secure: false
+
+signin:
+  is_secure: false
+
+signout:
+  is_secure: false
+
+connectFacebook:
+  is_secure: false
+
+connectLinkedin:
+  is_secure: false
+
+connectWeibo:
+  is_secure: false
+  
+facebook:      
+  is_secure: false
+        

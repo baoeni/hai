@@ -1,0 +1,19 @@
+ActSubject:
+  concert_show:
+    id: 1
+    name: Concert_Show
+  film_drama:
+    id: 2
+    name: Film_Drama
+  internet_business:
+    id: 3
+    name: Internet_Business
+  party:
+    id: 4
+    name: Party
+  sports:
+    id: 5
+    name: Sports
+  tour:
+    id: 6
+    name: Tour

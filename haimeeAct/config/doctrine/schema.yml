@@ -1,0 +1,167 @@
+# config/doctrine/schema.yml
+ActSubject:
+  columns:
+    id: { type: integer, primary: true }
+    name: { type: string(255) }
+
+Activity:
+  actAs: { Timestampable: ~ }
+  columns:
+    name:   { type: string(255), notnull: true }
+    subject_id: { type: integer, notnull: true } 
+    description: { type: string(4055) }
+    time_from:  { type: timestamp }
+    time_till:  { type: timestamp }
+    location:   { type: string(2550) }
+    organizer_id: { type: integer }
+    poster: { type: string(2550) }
+    invitation: { type: string(2550) }
+    reminder: { type: string(2550) }
+    reminder_time: { type: timestamp }
+    confirmation: { type: string(2550) }
+    payment_type_ids: { type: string(255) }
+    expires_at: { type: timestamp }
+    max_attenders: { type: integer }     
+  relations:
+    ActSubject: { onDelete: CASCADE, local: subject_id, foreign: id, foreignAlias: Activities }
+    User: { class: sfGuardUser, onDelete: CASCADE, local: organizer_id, foreign: id, foreignAlias: Activities }
+  
+Image:
+  actAs: { Timestampable: ~ }
+  columns:
+    activity_id: { type: integer }
+    image_location: { type: string(2550) }    
+  relations:
+    Activity: { onDelete: CASCADE, local: activity_id, foreign: id, foreignAlias: Images }
+
+PaymentType:
+  columns:
+    id: { type: integer, primary: true }
+    name: { type: string(255) }
+
+Fee:
+  actAs: { Timestampable: ~ }    
+  columns:
+    activity_id: { type: integer }
+    name: { type: string(2550) }
+    explanation: { type: string(2550) }
+    fee_type_id: { type: integer }
+    fee_group_id: { type: integer }
+    price: { type: double }
+    amount: { type: integer}
+    amount_order: { type: integer }
+  relations:
+    Activity: { onDelete: CASCADE, local: activity_id, foreign: id, foreignAlias: Fees }
+    FeeGroup: { onDelete: CASCADE, local: fee_group_id, foreign: id, foreignAlias: Fees }
+
+FeeGroup:
+  actAs: { Timestampable: ~ }
+  columns:
+    activity_id: { type: integer }
+    name: { type: string(2550) }
+    explanation: { type: string(2550) }
+  relations:
+    Activity: { onDelete: CASCADE, local: activity_id, foreign: id, foreignAlias: FeeGroups }
+
+FeeType:
+  columns:
+    id: { type: integer, primary: true }
+    # mandatory, optional, group_item
+    name: { type: string(255) }
+
+#UserGroup:
+#  columns:
+#    id: { type: integer, primary: true }
+    # administrator, organizer, attender
+#    name: { type: string(255) }
+
+#User:
+#  actAs: { Timestampable: ~ }    
+#  columns:
+#    group_id: { type: integer }
+#    name: { type: string(2550) }
+#    sex: { type: integer }
+#    birthday: { type: timestamp }
+#    location: { type: string(2550) }
+#    email: { type: string(2550) }
+#    phone: { type: string(255) }
+#  relations:
+#    UserGroup: { onDelete: CASCADE, local: group_id, foreign: id, foreignAlias: Users }
+
+#
+#
+sfGuardUserProfile:
+  columns:
+    user_id:
+      type: integer
+      primary: true
+    avatar:
+      type: string(1000)
+    sex:
+      type: boolean
+    birthday:
+      type: timestamp
+    location:
+      type: string(1000)
+    phone:
+      type: string(255)
+    bank_account_info:
+      type: string(255)
+  relations:
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreignType: one
+      onDelete: CASCADE
+#
+#
+
+UserActivity:
+  actAs: { Timestampable: ~ }        
+  columns:
+    user_id: { type: integer }
+    activity_id: { type: integer }
+        #(organizer, attender)  
+    type: { type: integer }
+    user_first_name: { type: string(255) }
+    user_last_name: { type: string(255) }
+    user_email_address: { type: string(255) }
+    user_phone: { type: string(255) }
+    location: { type: string(2550) }    
+    amount: { type: integer }
+    pay_type: { type: integer }
+    enter_time: { type: timestamp }
+    quit_time: { type: timestamp }
+    note: { type: string(2550) }
+    rating: { type: integer }
+    paid: { type: boolean }
+  relations:
+    User: { class: sfGuardUser, onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: UserActivities }
+    Activity: { onDelete: CASCADE, local: activity_id, foreign: id }
+    PaymentType: { onDelete: CASCADE, local: pay_type, foreign: id }
+         
+Payment:
+  actAs: { Timestampable: ~ }
+  columns:
+    user_activity_id: { type: integer }
+    fee_id: { type: integer }
+    amount: { type: integer }
+    pay_time: { type: timestamp }
+    pay_type: { type: integer }
+    pay_amount: { type: double }
+  relations:
+    UserActivity: { onDelete: CASCADE, local: user_activity_id, foreign: id, foreignAlias: Payments }
+    Fee: { onDelete: CASCADE, local: fee_id, foreign: id }
+    PaymentType: { onDelete: CASCADE, local: pay_type, foreign: id }
+        
+Comment:
+  columns:
+    user_id: { type: integer }
+    activity_id: { type: integer }
+    content: { type: string(2550) }
+    time: { type: timestamp }
+    image: { type: string(2550) }
+  relations:
+    User: { class: sfGuardUser, onDelete: CASCADE, local: user_id, foreign: id }
+    Activity: { onDelete: CASCADE, local: activity_id, foreign: id }
+        

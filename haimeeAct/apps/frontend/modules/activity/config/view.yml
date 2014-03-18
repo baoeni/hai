@@ -1,0 +1,73 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+indexSuccess:
+
+  stylesheets:    []
+
+  javascripts:    []
+
+showSuccess:
+
+  stylesheets:    [ activity.css, jquery.fancybox.css]
+
+  javascripts:    [jquery.fancybox.pack.js]
+ 
+attendersSuccess:
+  
+  stylesheets:    [ activity.css]
+
+  javascripts:    []
+
+adminSuccess:
+
+  stylesheets:    [  activity.css]
+
+  javascripts:    [, wufoo.js]
+
+newSuccess:
+
+  stylesheets:    [ jquery-ui-1.8.18.custom.css   ]
+
+  javascripts:    [ jquery-ui-1.8.18.custom.min.js, tiny_mce/tiny_mce.js, wufoo.js]
+
+editSuccess:
+
+  stylesheets:    [ jquery-ui-1.8.18.custom.css]
+
+  javascripts:    [ jquery-ui-1.8.18.custom.min.js, tiny_mce/tiny_mce.js, wufoo.js]
+
+attendSuccess:
+  
+  stylesheets:    [   ]
+
+  javascripts:    [ wufoo.js]
+
+
+feeShowSuccess:
+
+  stylesheets:    [  fee.css]
+
+  javascripts:    [ wufoo.js]
+
+feeNewSuccess:
+
+  stylesheets:    [  fee.css,]
+
+  javascripts:    [ wufoo.js]
+
+feeEditSuccess:
+
+  stylesheets:    [    fee.css]
+
+  javascripts:    [ wufoo.js]
+
+sendCommentEmailTestSuccess:
+  has_layout: false
+
+sendJoinEmailTestSuccess:
+  has_layout: false
+
+sendRatingEmailTestSuccess:
+  has_layout: false
+    

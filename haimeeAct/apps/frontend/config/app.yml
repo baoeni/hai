@@ -1,0 +1,93 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  sf_guard_plugin_default_from_email: info@haimee.com
+  sendtome_email: sendtome@haimee.com  
+#  sf_guard_plugin_success_signin_url: homepage
+  sf_guard_plugin_success_signout_url: homepage
+  send_rating_email_delay: 1
+#
+  max_attenders_on_activity: 50
+  
+  melody:
+     create_user: true               # to create a user for all melodies 
+     facebook:
+       key: 216912871751700
+       secret: ae34c6236d67cc15207deb51cd7bb3dc
+       callback: @homepage
+       scope: [email,user_birthday]                #optionnal - http://developers.facebook.com/docs/authentication/permissions
+                                     # needed to create an user based on his email_address
+       user:
+         username:                   # the name of a field of sfGuardUser
+           call: me                  # api call
+           path: name                  # path could be user.object.email for example to retrieve the right inforamtion
+         first_name:
+           call: me
+           path: first_name
+         last_name: 
+           call: me
+           path: last_name
+         email_address:               
+           call: me                  
+           path: email               
+           key: true                 # it's a key to retrieve user from other services based on this information
+                                     # if no field is a key all are keys by default.        
+
+     linkedin:
+        key: 9r6tma3dcfok
+        secret: FYoQQq1i7bNuvWaI
+        callback: @homepage
+                                      # needed to create an user based on his email_address
+        user:
+          username:                   # the name of a field of sfGuardUser
+            call: me                  # api call
+            path: firstName                  # path could be user.object.email for example to retrieve the right inforamtion
+          first_name:
+            call: me
+            path: firstName
+          last_name: 
+            call: me
+            path: lastName
+
+        call_parameters:
+            format: json
+
+     weibo:
+        key: 647831292
+        secret: 28a285e8545a4d99f93c62a5cdb1be3b
+        callback: @homepage
+                                      # needed to create an user based on his email_address
+        user:
+          username:                   # the name of a field of sfGuardUser
+            call: me                  # api call
+            path: screen_name                  # path could be user.object.email for example to retrieve the right inforamtion
+          first_name:
+            call: me
+            path: screen_name
+          last_name: 
+            call: me
+            path: name
+ 
+        call_parameters:
+            format: json
+
+     facebook_plus:                  # you can manage more than one config for a service
+       provider: facebook            # to manage permissions for example        
+
+  sf_captchagd:
+    image_width: 100 # image width in pixels
+    image_height: 30 # image height in pixels
+    chars: "123456789" # possible chars in captcha
+    length: 4 # length of captcha
+    font_size: 18 # font size
+    force_new_captcha: true # if true - captcha regenerated EVERY request, even if user input true value before
+    
+    # possible chars colors
+    font_color: ["252525", "8b8787", "550707", "3526E6", "88531E"]
+    
+    # chars fonts
+    fonts:  ["akbar/akbar.ttf", "brushcut/BRUSHCUT.TTF", "molten/molten.ttf", "planet_benson/Planetbe.ttf", "whoobub/WHOOBUB_.TTF"] 
+    background_color:  DDDDDD # image background color
+    border_color: 000000 # image border color

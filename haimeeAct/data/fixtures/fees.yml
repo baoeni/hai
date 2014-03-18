@@ -1,0 +1,66 @@
+Fee:
+  ski_ticket_item1:
+    activity_id: 1
+    name: ski ticket - once
+    explanation:
+    fee_type_id: 3
+    fee_group_id: 1
+    price: 20
+    amount: 100
+    amount_order: 0
+
+  ski_ticket_item2:
+    activity_id: 1
+    name: ski ticket - one week
+    explanation:
+    fee_type_id: 3
+    fee_group_id: 1
+    price: 100
+    amount: 100
+    amount_order: 0
+
+  ski_ticket_item3:
+    activity_id: 1
+    name: ski ticket - one month
+    explanation:
+    fee_type_id: 3
+    fee_group_id: 1
+    price: 300
+    amount: 100
+    amount_order: 0
+
+  ski_equipment:
+    activity_id: 1
+    name: ski equipment rental
+    explanation:
+    fee_type_id: 2
+    price: 50
+    amount: 50
+    amount_order: 0
+
+  ski_insurance:
+    activity_id: 1
+    name: ski insurance
+    explanation:
+    fee_type_id: 2
+    price: 20
+    amount: 50
+    amount_order: 0
+
+  concert_ticket:
+    activity_id: 2
+    name: concert ticket
+    explanation:
+    fee_type_id: 1
+    price: 80
+    amount: 200
+    amount_order: 0
+
+  concert_after_party:
+    activity_id: 2
+    name: concert after party
+    explanation:
+    fee_type_id: 2
+    price: 60
+    amount: 200
+    amount_order: 0

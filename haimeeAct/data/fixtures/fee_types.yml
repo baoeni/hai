@@ -1,0 +1,10 @@
+FeeType:
+  mandatory:
+    id: 1
+    name: Mandatory
+  optional:
+    id: 2
+    name: Optional
+  group_item:
+    id: 3
+    name: Group

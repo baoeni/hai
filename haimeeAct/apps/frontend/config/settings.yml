@@ -1,0 +1,51 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/04-Settings
+
+prod:
+  .settings:
+    no_script_name:         true
+    logging_enabled:        false
+
+dev:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  false
+    no_script_name:         false
+    etag:                   false
+
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    web_debug:              false
+    no_script_name:         false
+    etag:                   false
+
+all:
+  .settings:
+    enabled_modules:      [ sfCaptchaGD,sfGuardAuth,sfGuardRegister,sfGuardForgotPassword,sfMelody]
+    # Form security secret (CSRF protection)
+    csrf_secret:            056856feb3cce74b0fcef076689f333fe07434e4
+
+    # Output escaping settings
+    escaping_strategy:      true
+    escaping_method:        ESC_SPECIALCHARS
+
+    # Enable the database manager
+    use_database:           true
+
+    login_module:           sfGuardAuth
+    login_action:           signin
+    
+    secure_module:          sfGuardAuth
+    secure_action:          secure
+
+    error_404_module:       sfGuardAuth   # To be called when a 404 error is raised
+    error_404_action:       error404  # Or when the requested URL doesn't match any route
+    
+    sf_guard_plugin:
+       remember_key_expiration_age:  2592000   # 30 days in seconds
+       remember_cookie_name:         HaimeeActFRememberMe
+
+    
